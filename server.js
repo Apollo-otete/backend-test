@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const connectDb = require('./config/database')
 
 
 app.use(express.json())
@@ -52,7 +53,7 @@ app.get('/users', (req, res)=> {
         "gpa":4.4
     },
     {         id: 5,
-        "name": "Willington Juma",
+        "name": "W`illington Juma",
         "age": 31,
         "email": "willingtonjuma@gmail.com",
         "studentReg": "MMUST2024005",
@@ -71,7 +72,7 @@ app.get('/users', (req, res)=>{
 
 const port = 3000;
 app.listen(port,async()=>{
-    try{
+    try{await connectDb()
         console.log(`server is running on port ${port}`)
         }
     catch(error){
